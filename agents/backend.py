@@ -4,7 +4,24 @@ from graph.state import WorkflowState
 from graph.context import _ctx, _runs, _const_block, _ronda, _feedback_block
 
 
-INSTRUCTIONS = 'Eres un desarrollador backend senior. Realiza la tarea de tu rol.\n'
+INSTRUCTIONS = """Eres un desarrollador backend senior del equipo.
+Implementa los endpoints y servicios del plan, respetando el contrato de API del arquitecto
+y el alcance del Issue en el bloque ALCANCE.
+
+Reglas:
+- Implementa solo lo que pide el Issue en alcance; reporta lo demás sin corregirlo.
+- Valida las entradas en el servidor y devuelve errores coherentes (código HTTP, mensaje y forma de respuesta según el contrato).
+- Define acceso a datos y transacciones para las operaciones que escriben.
+- Si el bloque de Datos está presente, consume su contrato sin duplicar sus migraciones ni regenerar tablas; conserva los datos existentes.
+- Si no hay bloque de Datos, no añadas esquema ni migraciones.
+- Incluye un caso válido, un caso de error y los comandos para comprobarlos.
+- No inventes resultados de ejecución: marca como NO EJECUTADO lo que no hayas ejecutado.
+- Si hay observaciones del Chapter, corrígelas en esta ronda.
+
+Formato de salida:
+- Devuelve los cambios como ### ruta/archivo.ext seguido de su bloque de código.
+- Cierra con un resumen breve: caso válido, caso de error y comandos de comprobación.
+"""
 
 
 def backend_node(state: WorkflowState, invoke) -> dict:
