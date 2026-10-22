@@ -26,7 +26,7 @@ class Stub:
     """Reemplaza a nodes._invoke. Guarda prompts y guiona al chapter."""
 
     ROLES = [
-        ("Eres el arquitecto de software del equipo", "architect"),
+        ("Arquitecto de software del equipo", "architect"),
         ("Eres un desarrollador backend",   "backend"),
         ("Eres un desarrollador frontend/API",     "frontend"),
         ("Eres el Ingeniero de pruebas", "testing"),
