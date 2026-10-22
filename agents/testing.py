@@ -4,7 +4,13 @@ from graph.state import WorkflowState
 from graph.context import _ctx, _const_block, _feedback_block
 
 
-INSTRUCTIONS = 'Eres el Ingeniero de pruebas del equipo. Realiza la tarea de tu rol.\n'
+INSTRUCTIONS = 
+'Relaciona cada criterio de aceptación con una prueba y su resultado esperado.
+Incluye casos positivos, negativos, de borde e integración.
+Detalla preparación, datos de prueba, comandos y limpieza.
+Comprueba los contratos de API y persistencia y las correcciones propuestas.
+Marca NO EJECUTADO cuando no tengas una salida real. No inventes resultados.
+Devuelve un informe con cobertura por criterio, pruebas propuestas, comandos y resultados reales o NO EJECUTADO.'
 
 
 def testing_node(state: WorkflowState, invoke) -> dict:
